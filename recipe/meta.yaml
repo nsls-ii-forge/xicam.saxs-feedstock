@@ -21,14 +21,14 @@ requirements:
     - pip
   run:
     - python
-    - numpy
-    - qtpy
-    - pyFAI
-    - scipy
+    - databroker >=1.0.0b5
     - dill
-    - scikit-image
-    - databroker>=1.0.0b5
+    - numpy
+    - pyfai
+    - qtpy
     - scikit-beam
+    - scikit-image
+    - scipy
 
 test:
   imports:
