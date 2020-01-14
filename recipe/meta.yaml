@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   skip: True  # [py<36]
 
@@ -21,6 +21,7 @@ requirements:
     - pip
   run:
     - python
+    - csxtools
     - databroker >=1.0.0b5
     - dill
     - numpy
@@ -33,6 +34,8 @@ requirements:
 test:
   imports:
     - xicam.SAXS
+    - csxtools
+    - csxtools.fastccd
 
 about:
   home: https://github.com/synchrotrons/Xi-cam.SAXS
