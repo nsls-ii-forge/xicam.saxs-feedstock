@@ -1,0 +1,41 @@
+{% set name = "xicam.saxs" %}
+{% set version = "2.2.1" %}
+{% set sha256 = "6c4ed1efd89be16f6c0fd865a075a4a8585b953a52add8fbe4eacf6eee413c08" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/synchrotrons/Xi-cam.SAXS/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  skip: True  # [py<36]
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - numpy
+    - qtpy
+    - pyFAI
+    - scipy
+    - dill
+    - scikit-image
+    - databroker>=1.0.0b5
+    - scikit-beam
+
+test:
+  imports:
+    - xicam.SAXS
+
+about:
+  home: https://github.com/synchrotrons/Xi-cam.SAXS
+  license: BSD 3-clause
+  license_file: LICENSE.md
+  summary: SAXS plugin for Xi-cam
